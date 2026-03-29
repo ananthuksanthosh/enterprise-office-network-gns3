@@ -215,9 +215,10 @@ https://drive.google.com/file/d/1mlkhLAarYJyHyTNzjELdpsSS7sZZXd11/view?usp=shari
 🛠️ Technologies Used
 
 - GNS3 (Network Simulation Tool)  
-- Cisco 7200 Router (Core, Edge, Firewall roles)  
+- Cisco 7200 Router (Core, Edge, Firewall roles) 
+- Switch
 - VPCS (Virtual PC Simulator)  
-- VirtualBox  
+- VMware workstation
 
 ---
 
