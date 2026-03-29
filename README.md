@@ -1,98 +1,107 @@
 🏢 Enterprise Office Network Simulation (GNS3)
 
-📌 Overview
+Overview
 
-This project simulates a real-world enterprise office network using GNS3.
-It follows a core–edge architecture to provide secure communication, controlled access, and internet connectivity.
+This project demonstrates the design and implementation of an enterprise-level network using GNS3.
+The network follows a core–edge architecture and integrates routing, NAT, DHCP, and firewall security using ACLs.
 
-The implementation demonstrates key networking concepts such as routing, NAT, DHCP, and firewall security using ACLs.
+It simulates a real-world office environment with controlled access between internal departments, administrative systems, and external users.
 
 ---
 
-🏗️ Network Architecture
+Network Architecture
 
-The network is divided into multiple logical segments:
+The topology consists of:
 
-- Core Router (CORE-RTR): Handles internal routing and firewall policies
-- Edge Router (EDGE-RTR): Provides internet access using NAT
+- Core Router (CORE-RTR): Internal routing and firewall enforcement
+- Edge Router (EDGE-RTR): Internet access using NAT
 - Core Switch (CORE-SW): Connects office devices
-- Office Network: HR, IT, Finance departments
-- Admin Network: Protected subnet with restricted access
-- Customer Network: DHCP-enabled network for external users
+- Office Network: HR, IT, Finance systems
+- Admin Network: Secured subnet with restricted access
+- Customer Network: DHCP-based external network
 
 ---
 
-🌐 IP Addressing Scheme
+IP Addressing
 
-Network| Subnet| Description
-Core ↔ Edge| 10.0.0.0/24| Router communication
-Office Network| 192.168.10.0/24| HR, IT, FIN users
-Admin Network| 192.168.20.0/24| Secure admin devices
-Customer Network| 192.168.50.0/24| Guest access
+Network| Subnet
+Core ↔ Edge| 10.0.0.0/24
+Office| 192.168.10.0/24
+Admin| 192.168.20.0/24
+Customer| 192.168.50.0/24
 
 ---
 
-⚙️ Features Implemented
+Key Features
 
-- Static IP configuration for office devices
-- DHCP configuration for customer network
-- Network Address Translation (NAT) for internet access
+- Static IP addressing for internal office devices
+- DHCP-based automatic IP assignment for customer network
+- NAT configuration for internet connectivity
 - Static routing between networks
 - Firewall implementation using extended ACL
 - Network segmentation for security
 
 ---
 
-🔐 Security Implementation
-
-An extended Access Control List (ACL) is configured on the core router:
+Security (Firewall Logic)
 
 - Admin network has full access to all networks
-- Office and customer networks cannot access the admin network
-- Firewall rules are applied on multiple interfaces
+- Office and customer networks are restricted from accessing admin
+- Access control is enforced using extended ACL on the core router
 
 ---
 
-🔄 Data Flow
+Verification
 
-- Office Users:
-  PC → Switch → Core Router → Edge Router → Internet
+Network Topology
 
-- Customer Users:
-  Device → Access Point → Switch → Edge Router → Internet
-
-- Admin Access:
-  Admin can communicate with all networks
+"Topology" (screenshots/topology.png)
 
 ---
 
-🧪 Testing & Verification
+Internal Communication
 
-Blocked Access (Unauthorized → Admin)
+Devices within the office network communicate successfully.
 
-"Firewall Block Test" (screenshots/firewall-block-test.png)
-
----
-
-Allowed Access (Admin → All Networks)
-
-"Firewall Allow Test" (screenshots/firewall-allow-test.png)
+"Network Working" (screenshots/network-working.png)
 
 ---
 
-Internet Connectivity (NAT)
+Firewall – Blocked Access
 
-"Internet Test" (screenshots/internet-working.png)
+Unauthorized access to the admin network is blocked.
 
----
+"Firewall Block" (screenshots/firewall-block-test.png)
 
-DHCP Allocation (Customer Network)
-
-"DHCP Test" (screenshots/dhcp-customer.png)
+"Firewall Block HR" (screenshots/firewall-block-hr.png)
 
 ---
 
-🧰 Tools & Technologies
+Firewall – Allowed Access
+
+Admin network can access all other networks.
+
+"Firewall Allow" (screenshots/firewall-allow-test.png)
+
+---
+
+DHCP Configuration
+
+Customer devices receive IP automatically.
+
+"DHCP" (screenshots/dhcp-auto-assignment.png)
+
+---
+
+Internet Access (NAT)
+
+All networks can access the internet.
+
+"Internet" (screenshots/internet-access-NAT.png)
+
+---
+
+Tools Used
 
 - Cisco 7200 Router (IOS)
 - GNS3 Network Simulator
@@ -100,37 +109,25 @@ DHCP Allocation (Customer Network)
 
 ---
 
-📂 Project File
+Project File
 
-The full GNS3 project file is available via Google Drive:
+Full GNS3 project file:
 
 https://drive.google.com/file/d/1mlkhLAarYJyHyTNzjELdpsSS7sZZXd11/view?usp=sharing
 
-Reference link also available in:
-"project-files/link.txt"
+---
+
+Summary
+
+This project demonstrates practical implementation of enterprise networking concepts including routing, NAT, DHCP, and firewall security.
+It highlights how access control and network segmentation can be used to protect sensitive resources while maintaining connectivity.
 
 ---
 
-🎯 Learning Outcomes
+Author
 
-- Understanding of enterprise network design
-- Implementation of routing and NAT
-- Configuration of DHCP services
-- Application of ACL-based firewall security
-- Network segmentation concepts
-
----
-
-🎓 Conclusion
-
-This project demonstrates the design and implementation of a secure enterprise network using industry-standard networking concepts, integrating routing, NAT, DHCP, and access control mechanisms.
-
----
-
-👨‍💻 Author
-
-Ananthu K Santhosh\n
-Bachelor of Computer Applications (BCA)\n
+Ananthu K Santhosh
+BCA Student
 Marian College Kuttikkanam
 
 ---
