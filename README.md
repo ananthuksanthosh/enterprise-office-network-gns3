@@ -154,14 +154,16 @@ Screenshot: "dhcp-auto-assignment.png"
 
 ---
 
-📁 Project Structure
+## 📁 Project Structure
 
+```
 enterprise-office-network-gns3/
 │
-├── configs/         # Router configuration files
-├── project-file/    # GNS3 project download link
-├── screenshots/     # Output verification images
+├── configs/         # Router configurations
+├── project-file/    # GNS3 project link
+├── screenshots/     # Output images
 └── README.md
+```
 
 ---
 
