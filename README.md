@@ -2,10 +2,10 @@
 
 📌 Overview
 
-This project demonstrates the design and implementation of an enterprise office network using GNS3.
-It is built using a core–edge architecture and integrates key networking concepts such as routing, NAT, DHCP, and firewall security using Access Control Lists (ACLs).
+This project demonstrates a practical implementation of an enterprise office network using GNS3.
+It is designed using a core–edge architecture and integrates key networking concepts including routing, NAT, DHCP, and firewall security using Access Control Lists (ACLs).
 
-The objective is to simulate a secure and scalable office environment with controlled access between internal departments and external users.
+The goal is to simulate a real-world office environment with multiple departments, controlled access to sensitive resources, and internet connectivity.
 
 ---
 
@@ -13,19 +13,19 @@ The objective is to simulate a secure and scalable office environment with contr
 
 The network consists of the following components:
 
-- Core Router (CORE-RTR): Handles internal routing and enforces firewall policies
-- Edge Router (EDGE-RTR): Provides internet connectivity using NAT
+- Core Router (CORE-RTR): Internal routing and firewall enforcement
+- Edge Router (EDGE-RTR): Internet gateway with NAT configuration
 - Core Switch (CORE-SW): Connects internal office devices
 - Office Network: HR, IT, and Finance departments
 - Admin Network: Secure subnet with restricted access
-- Customer Network: DHCP-enabled external network
+- Customer Network: DHCP-enabled network for external users
 
 ---
 
 🌐 IP Addressing Scheme
 
 Network| Subnet| Description
-Core ↔ Edge| 10.0.0.0/24| Router-to-router communication
+Core ↔ Edge| 10.0.0.0/24| Router communication
 Office Network| 192.168.10.0/24| HR, IT, Finance
 Admin Network| 192.168.20.0/24| Secure admin systems
 Customer Network| 192.168.50.0/24| DHCP-based users
@@ -34,9 +34,9 @@ Customer Network| 192.168.50.0/24| DHCP-based users
 
 ⚙️ Features Implemented
 
-- Static IP addressing for internal office systems
+- Static IP addressing for internal office devices
 - DHCP configuration for customer network
-- NAT for internet connectivity
+- NAT for internet access
 - Static routing between routers
 - Firewall implementation using extended ACL
 - Network segmentation for improved security
@@ -48,8 +48,8 @@ Customer Network| 192.168.50.0/24| DHCP-based users
 An extended ACL is configured on the core router to enforce access control:
 
 - Admin network has full access to all networks
-- Office and customer networks cannot access the admin network
-- ACL rules are applied on multiple interfaces to ensure complete protection
+- Office and customer networks are restricted from accessing admin
+- ACL applied on multiple interfaces for complete protection
 
 ---
 
@@ -77,7 +77,7 @@ Admin can access all internal and external networks
 
 ---
 
-⭐ Highlights
+⭐ Project Highlights
 
 - Designed a multi-network enterprise topology
 - Implemented firewall security using ACL
@@ -89,22 +89,22 @@ Admin can access all internal and external networks
 
 🧪 Verification
 
-Screenshots demonstrating key functionalities are available in the "screenshots/" folder:
+Screenshots demonstrating functionality are available in the "screenshots/" folder:
 
-- "topology.png" → Network topology
-- "network-working.png" → Internal communication
-- "firewall-block-test.png" → Firewall blocking IT → Admin
-- "firewall-block-hr.png" → Firewall blocking HR → Admin
-- "firewall-allow-test.png" → Admin access to all networks
-- "dhcp-auto-assignment.png" → DHCP IP allocation
-- "internet-access-NAT.png" → Internet connectivity
+- topology.png → Network topology
+- network-working.png → Internal communication
+- firewall-block-test.png → Firewall blocking IT → Admin
+- firewall-block-hr.png → Firewall blocking HR → Admin
+- firewall-allow-test.png → Admin access to all networks
+- dhcp-auto-assignment.png → DHCP IP allocation
+- internet-access-NAT.png → Internet connectivity
 
 ---
 
 🧠 Design Decisions
 
 - Admin network is separated to enhance security
-- DHCP is used for customer network to simplify configuration
+- DHCP is used for customer network for ease of use
 - NAT is implemented on edge router for internet access
 - Firewall is applied on core router to protect internal resources
 
@@ -169,7 +169,7 @@ This project simulates a small enterprise environment where:
 🎓 Conclusion
 
 This project demonstrates how a secure and scalable enterprise network can be designed using industry-standard networking concepts.
-It integrates routing, NAT, DHCP, and access control mechanisms to achieve both connectivity and security.
+It integrates routing, NAT, DHCP, and access control mechanisms to ensure both connectivity and security.
 
 ---
 
