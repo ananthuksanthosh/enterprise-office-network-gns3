@@ -1,0 +1,22 @@
+! Firewall ACL Configuration (CORE Router)
+
+no access-list 100
+
+! Allow Admin full access
+access-list 100 permit ip host 192.168.20.5 any
+
+! Allow ICMP replies to Admin
+access-list 100 permit icmp any host 192.168.20.5 echo-reply
+
+! Block others from pinging Admin
+access-list 100 deny icmp any host 192.168.20.5 echo
+
+! Allow all other traffic
+access-list 100 permit ip any any
+
+! Apply ACL on interfaces
+interface FastEthernet1/0
+ ip access-group 100 in
+
+interface FastEthernet0/0
+ ip access-group 100 in

@@ -1,0 +1,35 @@
+hostname EDGE-RTR
+
+! Internet Interface
+interface FastEthernet0/0
+ ip address dhcp
+ ip nat outside
+ no shutdown
+
+! Connection to CORE
+interface FastEthernet1/0
+ ip address 10.0.0.1 255.255.255.0
+ ip nat inside
+ no shutdown
+
+! Customer Network
+interface FastEthernet1/1
+ ip address 192.168.50.1 255.255.255.0
+ ip nat inside
+ no shutdown
+
+! NAT Configuration
+access-list 1 permit 192.168.0.0 0.0.255.255
+ip nat inside source list 1 interface FastEthernet0/0 overload
+
+! Static Routes
+ip route 192.168.10.0 255.255.255.0 10.0.0.2
+ip route 192.168.20.0 255.255.255.0 10.0.0.2
+
+! DHCP for Customer Network
+ip dhcp excluded-address 192.168.50.1
+
+ip dhcp pool CUSTOMER
+ network 192.168.50.0 255.255.255.0
+ default-router 192.168.50.1
+ dns-server 8.8.8.8
