@@ -1,9 +1,0 @@
-GNS3 Project File Download
-
-This project file is hosted on Google Drive due to size limitations.
-
-Download Link:
-https://drive.google.com/file/d/1mlkhLAarYJyHyTNzjELdpsSS7sZZXd11/view?usp=sharing
-
-Note:
-This file contains the full GNS3 topology, configurations, and device setup.
